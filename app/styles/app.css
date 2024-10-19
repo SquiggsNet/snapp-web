@@ -1,1 +1,35 @@
 /* Ember supports plain CSS out of the box. More info: https://cli.emberjs.com/release/advanced-use/stylesheets/ */
+:root {
+  --primary: #3490dc;
+  --secondary: #ffed4a;
+  --background: #fff;
+  --text: #2d3748;
+}
+
+.dark {
+  --primary: #4299e1;
+  --secondary: #ecc94b;
+  --background: #1a202c;
+  --text: #e2e8f0;
+}
+
+.theme1 {
+  --primary: #ed8936;
+  --secondary: #4fd1c5;
+  --background: #fffaf0;
+  --text: #2d3748;
+}
+
+.theme2 {
+  --primary: #9f7aea;
+  --secondary: #48bb78;
+  --background: #f0fff4;
+  --text: #1a202c;
+}
+
+.theme3 {
+  --primary: #f56565;
+  --secondary: #4299e1;
+  --background: #ebf8ff;
+  --text: #2c5282;
+}
