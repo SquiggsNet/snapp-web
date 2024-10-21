@@ -7,7 +7,7 @@
 }
 
 .dark {
-  --primary: #4299e1;
+  --primary: #1f2937;
   --secondary: #ecc94b;
   --background: #1a202c;
   --text: #e2e8f0;
@@ -29,6 +29,13 @@
 
 .theme3 {
   --primary: #f56565;
+  --secondary: #4299e1;
+  --background: #ebf8ff;
+  --text: #2c5282;
+}
+
+.theme4 {
+  --primary: #3e2f2a;
   --secondary: #4299e1;
   --background: #ebf8ff;
   --text: #2c5282;

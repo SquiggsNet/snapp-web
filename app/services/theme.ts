@@ -5,7 +5,7 @@ import { action } from '@ember/object';
 export default class ThemeService extends Service {
   @tracked currentTheme: string = 'light';
 
-  themes: string[] = ['light', 'dark', 'theme1', 'theme2', 'theme3'];
+  themes: string[] = ['light', 'dark', 'theme1', 'theme2', 'theme3', 'theme4'];
 
   @action
   setTheme(theme: string): void {

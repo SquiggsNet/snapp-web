@@ -1,11 +1,54 @@
 {{page-title "SnappWeb"}}
-<div class="bg-background text-text">
-  <h2 id="title">Welcome to Ember</h2>
-  <h1 class="text-3xl font-bold underline">
-    Hello world!
-  </h1>
 
-  <ThemeSwitcher />
-</div>
+<Snui::AppWrapper>
+  <:header>
+    <Snui::NavBar>
+      <:mainMenu>
+        <Snui::Logo />
+        <Snui::DesktopMenu>
+          <:links>
+            {{#each this.menuItems as |item|}}
+              <Snui::NavLink::Main @route={{item.route}} @isCurrent={{item.isCurrent}}>{{item.label}}</Snui::NavLink::Main>
+            {{/each}}
+          </:links>
+        </Snui::DesktopMenu>
+      </:mainMenu>
 
-{{outlet}}
+      <:userMenu>
+        <Snui::UserMenu>
+          <:menuItems>
+            {{#each this.profileMenuItems as |item index|}}
+              <Snui::NavLink::MenuItem @route={{item.route}} @index={{index}}>{{item.label}}</Snui::NavLink::MenuItem>
+            {{/each}}
+          </:menuItems>
+        </Snui::UserMenu>
+        <Snui::MobileMenuButton @toggleMobileMenu={{this.toggleMobileMenu}} />
+      </:userMenu>
+
+      <:mobileMenu>
+        {{#if this.isMobileMenuOpen}}
+          <Snui::MobileMenu>
+            <:menuItems>
+              {{#each this.menuItems as |item|}}
+                <Snui::NavLink::Mobile @route={{item.route}} @isCurrent={{item.isCurrent}}>{{item.label}}</Snui::NavLink::Mobile>
+              {{/each}}
+            </:menuItems>
+            <:profileMenuItems>
+              {{#each this.profileMenuItems as |item|}}
+                <Snui::NavLink::Mobile @route={{item.route}} @isCurrent={{item.isCurrent}}>{{item.label}}</Snui::NavLink::Mobile>
+              {{/each}}
+            </:profileMenuItems>
+          </Snui::MobileMenu>
+        {{/if}}
+      </:mobileMenu>
+
+    </Snui::NavBar>
+
+    <Snui::Header @title="SnappWeb" />
+  </:header>
+
+  <:main>
+    {{outlet}}
+  </:main>
+
+</Snui::AppWrapper>

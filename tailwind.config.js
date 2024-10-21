@@ -3,7 +3,8 @@ module.exports = {
   darkMode: 'class',
   content: [
     './app/**/*.{gjs,gts,hbs,html,js,ts}',
-    // './node_modules/snapp-ui-beta/app/**/*.{gjs,gts,hbs,html,js,ts}',
+    './node_modules/snapp-ui/app/**/*.{gjs,gts,hbs,html,js,ts}',
+    './node_modules/snapp-ui/addon/**/*.{gjs,gts,hbs,html,js,ts}',
   ],
   theme: {
     extend: {
