@@ -1,2 +1,53 @@
 {{page-title "Music"}}
-{{outlet}}
+
+<div class="pr-4 sm:pr-6 lg:pr-8 pt-3 md:hidden">
+  <div class="flex justify-between">
+    <Snui::Header @title="Music" />
+    <Snui::MobileMenuButton @toggleMobileMenu={{this.toggleMobileMenu}} />
+  </div>
+</div>
+
+{{#if this.isMobileMenuOpen}}
+  <Snui::MobileMenu>
+    <:menuItems>
+      {{#each this.menuItems as |item|}}
+      <LinkTo
+        @route={{item.route}}
+        @model={{item.model}}
+        class="block rounded-md px-3 py-2 text-base font-medium {{if item.isCurrent 'bg-primary-900 text-white' 'text-gray-300 hover:bg-primary-700 hover:text-white'}}">
+        {{item.label}}
+      </LinkTo>
+        {{!-- <Snui::NavLink::Mobile @route={{item.route}} @isCurrent={{item.isCurrent}}>{{item.label}}</Snui::NavLink::Mobile> --}}
+      {{/each}}
+    </:menuItems>
+  </Snui::MobileMenu>
+{{/if}}
+
+<div class="pr-4 sm:pr-6 lg:pr-8 pt-3 flex">
+  <div class="hidden md:block">
+    <div class="h-[calc(100vh-5rem)] flex grow flex-col gap-y-5 overflow-y-auto border-r border-gray-200 bg-white px-6 w-60">
+      <nav class="flex flex-1 flex-col h-dvh">
+        <ul role="list" class="flex flex-1 flex-col gap-y-7">
+          <li>
+            <ul role="list" class="-mx-2 space-y-1">
+              {{#each this.menuItems as |item|}}
+                <li>
+                  {{!-- <a href="#" class="block rounded-md py-2 pl-4 pr-2 text-sm font-semibold leading-6 text-primary-700 hover:bg-gray-50">{{item.label}}</a> --}}
+                  <LinkTo
+                    @route={{item.route}}
+                    @model={{item.model}}
+                    class="block rounded-md px-3 py-2 text-base font-medium {{if item.isCurrent 'bg-primary-900 text-white' 'text-gray-300 hover:bg-primary-700 hover:text-white'}}">
+                    {{item.label}}
+                  </LinkTo>
+                </li>
+              {{/each}}
+            </ul>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+
+  {{outlet}}
+
+</div>

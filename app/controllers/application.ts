@@ -1,10 +1,10 @@
 import Controller from '@ember/controller';
 import { service } from '@ember/service';
-import Store from '@ember-data/store';
 import RouterService from '@ember/routing/router-service';
 import type { ModelFrom } from 'snapp-web/lib/type-utils';
 import ApplicationRoute from 'snapp-web/routes/application';
 import { tracked } from '@glimmer/tracking';
+import ThemeService from 'snapp-web/services/theme';
 
 interface MenuItemModel {
   label: string;
@@ -19,10 +19,19 @@ interface MenuItem {
 
 export default class ApplicationController extends Controller {
   declare model: ModelFrom<ApplicationRoute>;
-  @service declare store: Store;
   @service declare router: RouterService;
+  @service declare theme: ThemeService;
 
   @tracked isMobileMenuOpen = false;
+
+  constructor() {
+    super(...arguments);
+    // Ensure the theme is set when the application loads
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme && this.theme.themes.includes(savedTheme)) {
+      this.theme.setTheme(savedTheme);
+    }
+  }
 
   get currentRouteName(): string {
     return this.router.currentRouteName;

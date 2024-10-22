@@ -2,7 +2,7 @@
   {{#each this.themes as |theme|}}
     <button
       type="button"
-      class="px-4 py-2 rounded {{if (eq this.theme.currentTheme theme) 'bg-primary text-white' 'bg-gray-200 text-gray-800'}}"
+      class="px-4 py-2 rounded {{if (eq this.theme.currentTheme theme) 'bg-primary-700 hover:bg-primary-900 text-white' 'bg-gray-200 text-primary-800 hover:bg-primary-700 hover:text-white'}}"
       {{on "click" (fn this.setTheme theme)}}
     >
       {{theme}}

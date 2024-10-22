@@ -4,9 +4,9 @@ export default class MusicRoute extends Route {
   model() {
     return {
       menuItems: [
-        { label: 'Vinyl', href: '#', route: 'vinyl' },
-        { label: 'Artist', href: '#', route: 'artist' },
-        { label: 'Song', href: '#', route: 'song' },
+        { label: 'Vinyl', href: '#', route: 'music.topic', model: 'vinyls' },
+        { label: 'Artist', href: '#', route: 'music.topic', model: 'artists' },
+        { label: 'Song', href: '#', route: 'music.topic', model: 'songs' },
       ],
     };
   }

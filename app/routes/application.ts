@@ -6,12 +6,11 @@ export default class ApplicationRoute extends Route {
       menuItems: [
         { label: 'Dashboard', route: 'index' },
         { label: 'Music', route: 'music' },
-        { label: 'Admin', route: 'admin' },
       ],
       profileMenuItems: [
-        { label: 'Your Profile', route: 'index' },
-        { label: 'Settings', route: 'music' },
-        { label: 'Sign out', route: 'admin' },
+        { label: 'Your Profile', route: 'profile' },
+        { label: 'Settings', route: 'settings' },
+        { label: 'Sign out', route: 'sign-out' },
       ],
     };
   }
