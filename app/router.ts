@@ -8,7 +8,9 @@ export default class Router extends EmberRouter {
 
 Router.map(function () {
   this.route('music', function () {
-    this.route('topic', { path: '/:topic_id' });
+    this.route('topic', { path: '/:topic_id' }, function () {
+      this.route('entry', { path: '/:entry_id' });
+    });
   });
   this.route('admin');
   this.route('profile');

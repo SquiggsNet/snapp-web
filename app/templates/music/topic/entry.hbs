@@ -1,0 +1,34 @@
+{{page-title this.model.data.label}}
+
+
+<div class="px-4 sm:px-6 lg:px-8">
+  <div class="flex-grow">
+    <Snui::Header @title={{this.model.data.label}} />
+  </div>
+
+  <div class="mt-8 flow-root">
+    {{#each this.model.data.vinyls as |data|}}
+      <AlbumDisplay
+        @label="{{data.label}}"
+        @artists={{data.artists}}
+        @songs={{data.songs}}
+      />
+    {{else if this.model.data.vinyl}}
+      <AlbumDisplay
+        @label="{{this.model.data.vinyl.label}}"
+        @artists={{this.model.data.vinyl.artists}}
+        @songs={{this.model.data.vinyl.songs}}
+      />
+    {{else if (eq this.model.topic_id "vinyls")}}
+      <AlbumDisplay
+        @label="{{this.model.data.label}}"
+        @artists={{this.model.data.artists}}
+        @songs={{this.model.data.songs}}
+      />
+    {{else}}
+      No Albums Found
+    {{/each}}
+  </div>
+</div>
+
+{{outlet}}

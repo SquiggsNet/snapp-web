@@ -4,7 +4,10 @@
   <:header>
     <Snui::NavBar>
       <:mainMenu>
-        <Snui::Logo />
+        {{!-- <Snui::Logo @imgSrc="/imgs/squiggsnet.png" @alt="SNApp"/> --}}
+        <div class="flex-shrink-0">
+          <img class="h-8 w-8 rounded-full" src="/imgs/squiggsnet.png" alt="">
+        </div>
         <Snui::DesktopMenu>
           <:links>
             {{#each this.menuItems as |item|}}
@@ -15,7 +18,7 @@
       </:mainMenu>
 
       <:userMenu>
-        <Snui::UserMenu>
+        <Snui::UserMenu @imgSrc="/imgs/squiggs.jpg">
           <:menuItems>
             {{#each this.profileMenuItems as |item index|}}
               <Snui::NavLink::MenuItem @route={{item.route}} @index={{index}}>{{item.label}}</Snui::NavLink::MenuItem>
@@ -27,7 +30,7 @@
 
       <:mobileMenu>
         {{#if this.isMobileMenuOpen}}
-          <Snui::MobileMenu>
+          <Snui::MobileMenu @imgSrc="/imgs/squiggs.jpg">
             <:menuItems>
               {{#each this.menuItems as |item|}}
                 <Snui::NavLink::Mobile @route={{item.route}} @isCurrent={{item.isCurrent}}>{{item.label}}</Snui::NavLink::Mobile>

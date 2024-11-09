@@ -1,4 +1,4 @@
-import Model, { attr, belongsTo } from '@ember-data/model';
+import Model, { attr, belongsTo, hasMany } from '@ember-data/model';
 import type Artist from './artist';
 import type Vinyl from './vinyl';
 
@@ -7,7 +7,7 @@ export default class Song extends Model {
   @attr('number') length?: number;
   @attr('number') side?: number;
   @attr('number') disc?: number;
-  @belongsTo('artist', { async: true, inverse: 'songs' }) artist!: Artist[];
+  @hasMany('artist', { async: true, inverse: 'songs' }) artists!: Artist[];
   @belongsTo('vinyl', { async: true, inverse: 'songs' }) vinyl!: Vinyl[];
 }
 

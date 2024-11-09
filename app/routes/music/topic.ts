@@ -13,7 +13,9 @@ export default class MusicTopicRoute extends Route {
   @service declare store: Store;
   async model(params: { topic_id: string }) {
     if (params.topic_id) {
-      const data = await this.store.findAll(removeLastS(params.topic_id));
+      const data = await this.store.findAll(removeLastS(params.topic_id), {
+        // include: 'vinyls,artists,songs',
+      });
       return { topic_id: params.topic_id, data };
     }
   }

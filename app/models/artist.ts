@@ -5,7 +5,7 @@ import type Song from './song';
 export default class Artist extends Model {
   @attr('string') label?: string;
   @hasMany('vinyl', { async: true, inverse: 'artists' }) vinyls!: Vinyl[];
-  @hasMany('song', { async: true, inverse: 'artist' }) songs!: Song[];
+  @hasMany('song', { async: true, inverse: 'artists' }) songs!: Song[];
 }
 
 declare module 'ember-data/types/registries/model' {

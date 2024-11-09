@@ -1,0 +1,35 @@
+<div class="divide-y divide-gray-200 overflow-hidden rounded-lg bg-white shadow">
+  <Snui::Header @title={{@label}} />
+  <div class="px-4 py-5 sm:px-6">
+    {{#each @artists as |data|}}{{data.label}}{{/each}}
+  </div>
+  <div class="px-4 py-5 sm:p-6">
+    <div class="-mx-4 -my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
+      <div class="inline-block min-w-full py-2 align-middle sm:px-6 lg:px-8">
+        <div class="overflow-hidden shadow ring-1 ring-black ring-opacity-5 sm:rounded-lg">
+          <table class="min-w-full divide-y divide-gray-300">
+            <thead class="bg-gray-50">
+              <tr>
+                <th scope="col" class="py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-primary-900 sm:pl-6">Name</th>
+                <th scope="col" class="py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-primary-900 sm:pl-6">Disc</th>
+                <th scope="col" class="py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-primary-900 sm:pl-6">Side</th>
+                <th scope="col" class="py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-primary-900 sm:pl-6">Length</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-gray-200 bg-white">
+              {{#each @songs as |data|}}
+                <tr>
+                  <td class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-primary-900 sm:pl-6"><LinkTo  @route="music.topic.entry" @model={{data.id}}>{{data.label}}</LinkTo></td>
+                  <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{data.disc}}</td>
+                  <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{data.side}}</td>
+                  <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{data.length}}</td>
+                </tr>
+              {{/each}}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{{yield}}
