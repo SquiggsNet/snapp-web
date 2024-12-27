@@ -5,8 +5,7 @@ import type Vinyl from './vinyl';
 export default class Song extends Model {
   @attr('string') label?: string;
   @attr('number') length?: number;
-  @attr('number') side?: number;
-  @attr('number') disc?: number;
+  @attr('string') number?: string;
   @hasMany('artist', { async: true, inverse: 'songs' }) artists!: Artist[];
   @belongsTo('vinyl', { async: true, inverse: 'songs' }) vinyl!: Vinyl[];
 }

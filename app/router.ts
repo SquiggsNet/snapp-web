@@ -11,6 +11,7 @@ Router.map(function () {
     this.route('topic', { path: '/:topic_id' }, function () {
       this.route('entry', { path: '/:entry_id' });
     });
+    this.route('search');
   });
   this.route('admin');
   this.route('profile');

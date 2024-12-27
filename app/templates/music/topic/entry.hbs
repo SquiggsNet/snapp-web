@@ -13,17 +13,28 @@
         @artists={{data.artists}}
         @songs={{data.songs}}
       />
+      <AlbumDisplay
+        @label={{data.label}}
+        @artists={{data.artists}}
+        @songs={{data.songs}}
+        @format={{data.format}}
+        @year={{data.year}}
+      />
     {{else if this.model.data.vinyl}}
       <AlbumDisplay
-        @label="{{this.model.data.vinyl.label}}"
+        @label={{this.model.data.vinyl.label}}
         @artists={{this.model.data.vinyl.artists}}
         @songs={{this.model.data.vinyl.songs}}
+        @format={{this.model.data.vinyl.format}}
+        @year={{this.model.data.vinyl.year}}
       />
     {{else if (eq this.model.topic_id "vinyls")}}
       <AlbumDisplay
-        @label="{{this.model.data.label}}"
+        @label={{this.model.data.label}}
         @artists={{this.model.data.artists}}
         @songs={{this.model.data.songs}}
+        @format={{this.model.data.format}}
+        @year={{this.model.data.year}}
       />
     {{else}}
       No Albums Found
